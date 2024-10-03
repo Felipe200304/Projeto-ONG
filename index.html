@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Associado</title>
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Login -->
+        <div id="login-screen">
+            <h2>Tela de Login</h2>
+            <input type="text" placeholder="Usuário" id="username"><br><br>
+            <input type="password" placeholder="Senha" id="password"><br><br>
+            <button class="button" onclick="goToNextScreen('details-screen')">Entrar</button>
+        </div>
+
+        >
+
+<!--22-09-2024
+Navegar entre as telas, criar janelas: EX: 01, 02, 03, 04
+e mostrar que foi confirmado os dados daquela tela-->
+
+    
+<div id="details-screen" class="hidden">
+    <h2>Detalhes do Associado</h2>
+
+    <input type="text" placeholder="Nome" id="first-name"><br><br>
+
+
+    <input type="text" placeholder="Último Nome" id="last-name"><br><br>
+
+    <input type="date" id="birth-date"><br><br>
+
+    <input type="text" placeholder="Profissão" id="profession"><br><br>
+
+    <!-- Campo de Gênero -->
+    <label for="gender">Gênero:</label><br>
+    <input type="radio" id="masculino" name="gender" value="masculino">
+    <label for="masculino">Masculino</label><br>
+    <input type="radio" id="feminino" name="gender" value="feminino">
+    <label for="feminino">Feminino</label><br><br>
+
+    <input type="text" placeholder="Número da Identificação" id="id-number"><br>
+    <small>Cartão Cidadão, BI, Passaporte, Cartão de Residência</small><br><br>
+
+    <input type="text" placeholder="Contribuinte" id="contributor-number"><br>
+    <small>Para envio de declaração anual dos donativos</small><br><br>
+
+    <button class="button" onclick="goToPreviousScreen('login-screen')">Voltar</button>
+    <button class="button" onclick="goToNextScreen('contact-screen')">Próximo</button>
+</div>
+
+
+        <!-- Tela de Detalhes de Contato -->
+        <div id="contact-screen" class="hidden">
+            <h2>Detalhes de Contato</h2>
+            <input type="text" placeholder="Morada" id="address"><br><br>
+            <input type="text" placeholder="Localidade" id="city"><br><br>
+            <input type="text" placeholder="Código Postal" id="postal-code"><br><br>
+            <small>Para o envio de revistas e outras comunicações</small><br><br>
+            <input type="email" placeholder="E-mail" id="email"><br><br>
+            <input type="email" placeholder="Confirme seu E-mail" id="confirm-email"><br><br>
+            <small>Para envio da Newsletter e outras comunicações</small><br><br>
+            <input type="tel" placeholder="Telefone Residêncial" id="phoneresidencial"><br><br>
+            <input type="tel" placeholder="Telemóvel" id="phone"><br><br>
+            <small>Para receber nossas chamadas de boa vindas e outras comunicações por sms</small><br><br>
+            <button class="button" onclick="goToPreviousScreen('details-screen')">Voltar</button>
+            <button class="button" onclick="goToNextScreen('payment-screen')">Próximo</button>
+        </div>
+
+        <div id="payment-screen" class="hidden">
+            <h2>Detalhes do Pagamento</h2>
+        
+            <!-- Campo para selecionar valores de doação usando radio buttons
+             Remover os mensalidade e colocar em linha.
+             
+             Adcionar caixa de texto para número de iban, se for sem iban a caixa de texto some. Deixar pre-selcionado -->
+            <label for="donation-amount">Selecione o valor da mensalidade:</label><br>
+            <input type="radio" id="value10" name="donation-amount" value="10">
+            <label for="value10">Mensalidade: 10</label><br>
+            <input type="radio" id="value15" name="donation-amount" value="15">
+            <label for="value15">Mensalidade: 15</label><br>
+            <input type="radio" id="value25" name="donation-amount" value="25">
+            <label for="value25">Mensalidade: 25</label><br>
+            <input type="radio" id="value50" name="donation-amount" value="50">
+            <label for="value50">Mensalidade: 50</label><br>
+            <input type="radio" id="other-value" name="donation-amount" value="other">
+            <label for="other-value">Outro valor:</label>
+            <input type="text" id="other-value-input" placeholder="Digite outro valor" disabled><br><br>
+        
+            <!-- Botões para escolher entre com ou sem IBAN -->
+            <label>Doação com IBAN?</label><br>
+            <input type="radio" id="com-iban" name="iban-option" value="com">
+            <label for="com-iban">Com IBAN</label><br>
+            <input type="radio" id="sem-iban" name="iban-option" value="sem">
+            <label for="sem-iban">Sem IBAN</label><br><br>
+        
+            <!-- Campo para IBAN (aparece somente se a opção "com IBAN" for selecionada) -->
+            <div id="iban-section" class="hidden">
+                <label for="iban">Número do IBAN:</label>
+                <input type="text" id="iban" placeholder="Digite o número do IBAN"><br><br>
+            </div>
+        
+            <!-- Campo para observações -->
+            <label for="observations">Observações:</label>
+            <textarea id="observations" placeholder="Adicione observações aqui"></textarea><br><br>
+        
+            <!-- Botões de navegação -->
+            <button class="button" onclick="goToPreviousScreen('contact-screen')">Voltar</button>
+            <button class="button" onclick="goToNextScreen('terms-screen')">Próximo</button>
+        </div>
+        
+<!-- Tela de Termos e Condições -->
+<div id="terms-screen" class="hidden">
+    <h2>Termos e Condições</h2>
+    <p>
+        (Condições do Débito Direto - Amigos SOS das Aldeias de Crianças SOS)<br><br>
+        * 1. Autorizo a minha entidade bancária a debitar na minha conta acima indicada, por sistema de débito direto (SDD), a pedido da Associação das Aldeias de Crianças SOS Portugal, a importância indicada.<br>
+        * 2. Será debitado na minha conta o valor acima indicado, até ao dia 15 de cada mês, exceto o primeiro débito que pode ser efetuado ao longo do mês de inscrição.<br>
+        * 3. Caso o débito não seja efetuado com sucesso, por falta de provisão na conta, poderá ocorrer uma segunda tentativa de débito no mesmo montante, ao longo do respetivo mês.<br>
+        * 4. Estou informado de que os débitos poderão ser efetuados em datas distintas.<br>
+        * 5. A Associação das Aldeias de Crianças SOS Portugal apenas poderá alterar os montantes e dados contidos nesta ficha, após contacto e aprovação prévias.<br>
+        * 6. Informarei, por escrito, a minha entidade bancária e a Associação das Aldeias de Crianças SOS Portugal, com 10 dias de antecedência da data de débito acordada, caso pretenda cancelar as instruções aqui indicadas.<br>
+        * 7. Tenho conhecimento que, caso algum débito não cumpra as instruções aqui indicadas, terei 30 dias úteis para reclamar junto da minha entidade bancária que me devolverá os montantes em causa.
+    </p>
+    <input type="checkbox" id="agree-terms"> Concordo com os Termos e Condições<br><br>
+    <button class="button" onclick="goToPreviousScreen('payment-screen')">Voltar</button>
+    <button class="button" onclick="goToNextScreen('signature-screen')">Próximo</button>
+</div>
+
+
+        <!-- Tela de Assinatura Digital 
+         
+        Finalizar e salvar são a mesma coisa, 
+        Adiconar um botão de apagar tudo(em vermelho) descrição sobre o que será feito ao excutar o programa. 
+        Colocar em cores os botões -->
+        <div id="signature-screen" class="hidden">
+            <h2>Assinatura Digitald</h2>
+            <canvas id="signature-pad" style="border: 1px solid #000; width: 100%; height: 200px;"></canvas><br><br>
+            <button class="button" onclick="clearSignature()">Redefinir Assinatura</button>
+            <button class="button" onclick="saveSignature()">Salvar Assinatura</button><br><br>
+            <button class="button" onclick="goToPreviousScreen('terms-screen')">Voltar</button>
+            <button class="button" onclick="finishRegistration()">Finalizar</button>
+        </div>
+    </div>
+
+    <!-- Link para o JavaScript externo -->
+    <script src="functions.js"></script>
+</body>
+</html>
